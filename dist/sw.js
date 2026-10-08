@@ -1,4 +1,4 @@
-const CACHE='cet6-v9';
+const CACHE='cet6-v10';
 const ASSETS=['./','./index.html','./style.css','./content.js','./vocabulary.js','./materials.js','./profiles.js','./dialogs.js','./library.js','./sources.js','./source-guide.json','./daily-feed.json','./LICENSE-DATA.txt','./core.js','./app.js','./pronunciation.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./icon-maskable.png','./audio/garden.wav','./audio/garden-sentence.wav','./audio/library.wav','./audio/library-sentence.wav','./audio/culture.wav','./audio/culture-sentence.wav'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(ASSETS);await cache.put('./offline-ready',new Response('ready'));await self.skipWaiting();})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('cet6-')&&key!==CACHE)await caches.delete(key);await self.clients.claim();for(const client of await self.clients.matchAll())client.postMessage('offline-ready');})()));
