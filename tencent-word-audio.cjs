@@ -27,6 +27,12 @@ async function bundle({stateDirectory=path.join(__dirname,'public-state'),destin
  const status={provider:'Tencent Cloud TTS',voiceType:VOICE,voiceName:'WeJack · 英语精品合成',day:today,state:'not-configured',newRecordings:0,totalRecordings:current,requestsToday:daily.calls,charactersToday:daily.characters,errors:[]};
  const secretId=env.TENCENT_SECRET_ID?.trim(),secretKey=env.TENCENT_SECRET_KEY?.trim();
  if(secretId&&secretKey){
+  // User confirmed claiming the matching quota on 2026-10-09. Permit one reset
+  // of this specific error, without resetting attempted calls or daily limits.
+  if(today==='2026-10-09'&&daily.errors.length===1&&daily.errors[0]==='UnsupportedOperation.PkgExhausted'&&!daily.quotaClaimRetryUsed&&daily.calls<daily.limit){
+   daily.quotaClaimRetryUsed=true;daily.previousErrors=[...daily.errors];daily.errors=[];
+   fs.writeFileSync(controlPath,JSON.stringify(control));
+  }
   if(!words){const ctx={};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'dist/content.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'dist/vocabulary.js'),'utf8')+';globalThis.list=WORDS.map(w=>w.word);',ctx);words=ctx.list;}
   status.state=daily.errors.length?'failed':daily.calls>=daily.limit?'daily-limit':'updated';status.errors=[...daily.errors];
   for(const word of words){if(daily.errors.length||daily.calls>=daily.limit||now()-start>=budget)break;if(manifest.entries[word]?.provider==='Tencent Cloud TTS')continue;if(typeof word!=='string'||word.length>100||! /^[A-Za-z][A-Za-z '\-]*$/.test(word))continue;
@@ -36,7 +42,7 @@ async function bundle({stateDirectory=path.join(__dirname,'public-state'),destin
    }catch(e){const code=/^[A-Za-z0-9_.]{1,100}$/.test(e.message)?e.message:'GenerationFailed';daily.errors.push(code);status.state='failed';status.errors=[...daily.errors];fs.writeFileSync(controlPath,JSON.stringify(control));break;}
   }
  }
- status.requestsToday=daily.calls;status.charactersToday=daily.characters;status.totalRecordings=Object.values(manifest.entries).filter(e=>e.provider==='Tencent Cloud TTS').length;if(status.state==='updated'&&status.totalRecordings===words?.length)status.state='complete';
+ status.requestsToday=daily.calls;status.charactersToday=daily.characters;status.quotaClaimRetryUsed=!!daily.quotaClaimRetryUsed;if(daily.previousErrors)status.previousErrors=[...daily.previousErrors];status.totalRecordings=Object.values(manifest.entries).filter(e=>e.provider==='Tencent Cloud TTS').length;if(status.state==='updated'&&status.totalRecordings===words?.length)status.state='complete';
  manifest.generation=status;manifest.updatedAt=new Date(now()).toISOString();fs.writeFileSync(manifestPath,JSON.stringify(manifest));
  const out=path.join(destination,'word-audio');fs.mkdirSync(out,{recursive:true});for(const entry of Object.values(manifest.entries))fs.copyFileSync(path.join(folder,entry.file),path.join(out,entry.file));fs.writeFileSync(path.join(destination,'word-audio.json'),JSON.stringify(manifest));
  return status;
