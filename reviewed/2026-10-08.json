@@ -1,0 +1,46 @@
+{
+  "approved": true,
+  "reviewedBy": "assistant",
+  "day": "2026-10-08",
+  "material": {
+    "id": "ai-2026-10-08",
+    "day": "2026-10-08",
+    "title": "学习成本与大学生活规划",
+    "theme": "国际教育 · 写作话题拓展",
+    "publisher": "GOV.UK · 英国政府学生资助与还款说明",
+    "sourceUrl": "https://www.gov.uk/student-finance",
+    "sourcePublished": "页面未标注发布日期",
+    "checkedAt": "2026-10-08",
+    "chinese": "在英格兰，符合条件的学生可以申请贷款，用于支付大学学费或生活费用。学费贷款直接支付给学校，而生活费贷款进入学生的银行账户。",
+    "translation": "In England, eligible students can apply for loans to help pay university tuition fees or living expenses. Tuition fee loans are paid directly to the university, while maintenance loans are paid into students' bank accounts.",
+    "paragraph": "在英格兰，符合条件的学生可以申请贷款，用于支付大学学费或生活费用。学费贷款直接支付给学校，而生活费贷款进入学生的银行账户。这些贷款需要偿还，开始还款的时间和还款金额取决于适用的计划。对于学生来说，了解学习成本有助于提前规划大学生活。在比较不同的资助方式时，不仅要关注眼前能够获得多少资金，也应阅读相关说明，理解未来可能承担的责任。学校可以通过清晰的信息和必要的指导，帮助学生提出问题并作出更充分的准备。",
+    "paragraphTranslation": "In England, eligible students can apply for loans to help pay university tuition fees or living expenses. Tuition fee loans are paid directly to the university, while maintenance loans are paid into students' bank accounts. These loans must be repaid, and the timing and amounts of repayments depend on the applicable plan. Understanding study costs helps students plan for university life in advance. When comparing different forms of financial support, they should not only consider how much funding is available now, but also read the relevant guidance to understand their future responsibilities. Schools can provide clear information and necessary guidance to help students ask questions and prepare more thoroughly.",
+    "pattern": "be eligible for …（符合……条件） / help pay for …（帮助支付……） / not only … but also …（不仅……而且……）",
+    "prompt": "Write 40–60 words explaining why university students should plan their study costs. Give one practical example.",
+    "sample": "Planning study costs can help university students prepare for everyday needs. For example, listing expected spending on books, meals and transport makes it easier to discuss available support with their families. Clear information from universities can also help students ask useful questions and make thoughtful plans before a course begins.",
+    "keywords": [
+      "tuition fees",
+      "living expenses",
+      "maintenance loan",
+      "financial support",
+      "plan in advance"
+    ],
+    "checks": [
+      "注意 eligible students 与 can apply 的搭配",
+      "区分 loan（贷款）与 grant（补助），不混用",
+      "not only … but also … 前后结构保持平行"
+    ],
+    "kind": "AI 草稿修订 · 助手编辑核对",
+    "note": "原草稿为 BBC 选题，但下载件未保留报道链接，因此未将其当作已核验来源。前三句依据 GOV.UK 学生资助与还款说明重写，其余为原创学习规划引申；属国际教育写作拓展，不是真题或命题预测。还款说明：https://www.gov.uk/repaying-your-student-loan"
+  },
+  "contentHash": "a3c0715ddb23689baf6ef2108044ba4d2b3bce6aaf921c40e3fa0a91a6d9588f",
+  "review": {
+    "sourceChanged": true,
+    "checks": [
+      "移除未核验的生活成本上升与被迫打工说法",
+      "政府资料核对前三句",
+      "中英文逐句核对",
+      "字数、词数和素材格式检查"
+    ]
+  }
+}
