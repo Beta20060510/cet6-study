@@ -1,0 +1,12 @@
+{
+  "name": "cet6-twenty",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.cjs",
+    "check": "node checks.cjs && node checks-v2.cjs && node checks-online.cjs && node validate-materials.cjs && node checks-static.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

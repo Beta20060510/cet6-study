@@ -1,0 +1,2 @@
+const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');const pack=JSON.parse(fs.readFileSync(path.join(__dirname,'dist/daily-feed.json'),'utf8'));
+const context={BUNDLED_MATERIALS:pack,Profiles:{key:()=> 'test'},localStorage:{getItem:()=>null},Intl,Date,URL,document:{getElementById:()=>null}};vm.createContext(context);vm.runInContext(fs.readFileSync(path.join(__dirname,'dist/library.js'),'utf8')+';Library.validate(BUNDLED_MATERIALS)',context);console.log('PASS: material schema, '+pack.materials.length+' source-attributed items.');

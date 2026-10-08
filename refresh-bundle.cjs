@@ -1,0 +1,2 @@
+// After editing reviewed daily-feed.json, update the bundled offline seed.
+const fs=require('node:fs'),path=require('node:path');require('./validate-materials.cjs');const file=path.join(__dirname,'dist/daily-feed.json');fs.writeFileSync(path.join(__dirname,'dist/materials.js'),'const BUNDLED_MATERIALS = '+fs.readFileSync(file,'utf8')+';\n');console.log('Offline material seed refreshed. Online clients fetch daily-feed.json without a rebuild.');

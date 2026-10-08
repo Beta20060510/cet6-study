@@ -1,0 +1,10 @@
+{
+  "state": "failed",
+  "lastSuccess": null,
+  "lastAttempt": "2026-10-08T12:04:44.258Z",
+  "lastAttemptDay": "2026-10-08",
+  "errors": [
+    "来源获取未成功，保留上次素材"
+  ],
+  "candidates": 0
+}

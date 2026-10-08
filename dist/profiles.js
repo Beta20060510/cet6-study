@@ -1,0 +1,7 @@
+// Local study profiles isolate answers, library drafts and cached news within this browser.
+const Profiles=(()=>{let list=[{id:'default',name:'我的学习'}],active='default';try{const data=JSON.parse(localStorage.getItem('cet6-profiles-v2')||'null');if(data&&Array.isArray(data.list)&&data.list.length<=30&&data.list.every(p=>/^[a-z0-9-]{1,80}$/.test(p.id)&&typeof p.name==='string'&&p.name.length<=30)){list=data.list;active=list.some(p=>p.id===data.active)?data.active:list[0].id;}}catch(e){}
+ function key(type){if(type==='training'&&active==='default')return 'cet6-twenty-v1';return 'cet6-'+type+'-v2-'+active;}
+ function persist(){localStorage.setItem('cet6-profiles-v2',JSON.stringify({list,active}));}
+ function render(){const select=document.getElementById('profileSelect');if(!select)return;for(const p of list){const option=document.createElement('option');option.value=p.id;option.textContent=p.name;option.selected=p.id===active;select.appendChild(option);}select.onchange=()=>{pause();active=select.value;try{persist();location.reload();}catch(e){toast('档案切换保存失败，请导出备份');}};document.getElementById('addProfile').onclick=async()=>{pause();if(list.length>=30){toast('本设备最多 30 个档案');return;}const name=await AppDialog.ask('给新学习档案起个名字（最多30字）');if(!name?.trim())return;if(name.trim().length>30){toast('名字过长');return;}const id='user-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);list.push({id,name:name.trim()});active=id;try{persist();location.reload();}catch(e){toast('新档案保存失败');}};}
+ return {key,render,get active(){return active;}};
+})();
