@@ -1,10 +1,17 @@
 const fs=require('node:fs'),path=require('node:path'),{getNews}=require('./news.cjs'),{select,build}=require('./curation.cjs'),{day}=require('./updater.cjs');
-async function buildStatic({destination=path.join(__dirname,'site'),stateDirectory=path.join(__dirname,'public-state'),news=getNews}={}){
+const {generate}=require('./generate-daily.cjs');
+async function buildStatic({destination=path.join(__dirname,'site'),stateDirectory=path.join(__dirname,'public-state'),news=getNews,generation=generate}={}){
  const seed=JSON.parse(fs.readFileSync(path.join(__dirname,'dist/daily-feed.json'),'utf8'));let prior=null;try{prior=JSON.parse(fs.readFileSync(path.join(stateDirectory,'last-public.json'),'utf8'));}catch(e){}
- const today=day();let pack=prior?.pack||seed,newsFeed=prior?.newsFeed||{status:'unavailable',fetchedAt:null,items:[]};const status={state:'failed',lastAttempt:new Date().toISOString(),lastSuccess:prior?.status?.lastSuccess||null,lastSuccessDay:prior?.status?.lastSuccessDay||null,today,errors:[],mode:'定时获取新闻并关联已编辑主题练习；不是每日新编报道译文'};
+ const today=day();let pack=prior?.pack||seed,newsFeed=prior?.newsFeed||{status:'unavailable',fetchedAt:null,items:[]};const status={state:'failed',lastAttempt:new Date().toISOString(),lastSuccess:prior?.status?.lastSuccess||null,lastSuccessDay:prior?.status?.lastSuccessDay||null,today,errors:[],mode:'定时新闻主题关联；AI 新题生成与审核结果另列'};
  try{const raw=await news(true),candidates=select(raw.items||[]);if(!['live','cached-server'].includes(raw.status)||!candidates.length)throw Error('没有取得可用的新近主题新闻');pack=build(seed,candidates,today);newsFeed={...raw,items:candidates};Object.assign(status,{state:raw.errors?.length?'partial':'updated',lastSuccess:new Date().toISOString(),lastSuccessDay:today,errors:raw.errors||[]});}catch(e){status.errors=[e.message];newsFeed={...newsFeed,status:newsFeed.items.length?'stale':'unavailable'};}
  // Preserve old news on failure, while publishing manually reviewed additions from source.
  pack={...pack,materials:[...pack.materials.filter(m=>m.id.startsWith('news-')),...seed.materials.filter(m=>!m.id.startsWith('news-'))]};
+ // AI publication is a separate success signal from news retrieval.
+ let generated;try{generated=await generation({candidates:newsFeed.status==='stale'?[]:newsFeed.items,day:today,stateDirectory});}catch(e){generated={state:'failed',day:today,newExercises:0,errors:['生成流程异常，保留旧题']};}
+ const {material,...generationStatus}=generated;status.generation=generationStatus;
+ const previousAI=(prior?.pack?.materials||[]).filter(m=>m.id.startsWith('ai-'));
+ const ai=[...(material?[material]:[]),...previousAI.filter(m=>m.id!==material?.id)].slice(0,30);
+ pack.materials=[...ai,...pack.materials];if(material)pack.updatedAt=today;
  fs.mkdirSync(stateDirectory,{recursive:true});fs.writeFileSync(path.join(stateDirectory,'last-public.json'),JSON.stringify({pack,newsFeed,status}));
  fs.mkdirSync(destination,{recursive:true});fs.cpSync(path.join(__dirname,'dist'),destination,{recursive:true});
  for(const [name,value] of [['daily-feed.json',pack],['news-feed.json',newsFeed],['update-status.json',status]])fs.writeFileSync(path.join(destination,name),JSON.stringify(value,null,2));
@@ -15,3 +22,4 @@ async function buildStatic({destination=path.join(__dirname,'site'),stateDirecto
  fs.writeFileSync(path.join(destination,'.nojekyll'),'');return {status,pack,destination};
 }
 module.exports={buildStatic};if(require.main===module)buildStatic().then(r=>console.log('Static package prepared: '+r.pack.materials.length+' exercises; update '+r.status.state+'; external publication has not been performed.')).catch(e=>{console.error(e.message);process.exitCode=1;});
+
