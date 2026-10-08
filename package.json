@@ -1,10 +1,10 @@
 {
   "name": "cet6-twenty",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "scripts": {
     "start": "node server.cjs",
-    "check": "node checks.cjs && node checks-v2.cjs && node checks-online.cjs && node validate-materials.cjs && node checks-static.cjs && node checks-generation.cjs && node checks-pronunciation.cjs && node checks-free-learning.cjs"
+    "check": "node checks.cjs && node checks-v2.cjs && node checks-online.cjs && node validate-materials.cjs && node checks-static.cjs && node checks-generation.cjs && node checks-pronunciation.cjs && node checks-free-learning.cjs && node checks-hosted-audio.cjs"
   },
   "engines": {
     "node": ">=22"
