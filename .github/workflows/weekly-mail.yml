@@ -1,6 +1,11 @@
 name: Weekly CET-6 translation and writing email
 on:
   workflow_dispatch:
+    inputs:
+      diagnostics_only:
+        description: Check news sources without sending email or calling AI
+        type: boolean
+        default: false
   schedule:
     # Sunday 20:00 Beijing; GitHub may delay scheduled starts.
     - cron: '0 12 * * 0'
@@ -28,8 +33,12 @@ jobs:
           restore-keys: cet6-weekly-mail-
       - run: node weekly-check.cjs
       - run: node content-check.cjs
+      - run: node news-diagnostics.cjs
+        if: ${{ inputs.diagnostics_only == true }}
       - run: npm install --prefix .weekly-runtime --no-save --ignore-scripts --no-audit --no-fund nodemailer
+        if: ${{ inputs.diagnostics_only != true }}
       - name: Collect and email weekly materials
+        if: ${{ inputs.diagnostics_only != true }}
         run: node weekly-mail.cjs
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
