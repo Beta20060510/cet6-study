@@ -1,58 +1,10 @@
-name: Publish CET-6 study app
+name: Retired CET-6 website (stopped)
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-  schedule:
-    # Beijing 08:17; scheduling may be delayed by GitHub.
-    - cron: '17 0 * * *'
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: cet6-pages
-  cancel-in-progress: false
 jobs:
-  publish:
+  retired:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          package-manager-cache: false
-      - uses: actions/cache@v6
-        with:
-          path: public-state
-          key: cet6-public-state-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: cet6-public-state-
-      - run: npm run check
-      - run: node publish-static.cjs
-        env:
-          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
-          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
-          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
-          AI_MODEL: ${{ vars.AI_MODEL }}
-          AI_AUTO_PUBLISH: ${{ vars.AI_AUTO_PUBLISH }}
-      - name: Save daily draft for review
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: daily-draft-${{ github.run_id }}
-          path: public-state/generation/*.json
-          if-no-files-found: ignore
-          retention-days: 14
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - name: Publish website
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo 'Website publication and daily AI/TTS generation have been retired. Existing source materials are preserved.'

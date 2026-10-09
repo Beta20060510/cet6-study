@@ -1,0 +1,44 @@
+# 停用网页，保留翻译写作并每周发送邮件
+
+这是原仓库的迁移补丁，保留翻译写作素材及来源、选题过滤、AI生成与自动复核。未删除旧程序、素材或学习记录。新任务不部署网页，不生成词汇音频，不读取腾讯云密钥。
+
+## 停用与迁移方式
+
+每日工作流替换为仅手动显示停用说明的工作流，不再调用 AI 或腾讯云。新增一次性停用页面部署，原网址仅显示停用提示，不提供学习界面或素材。原程序与素材源文件保留在仓库。已安装的离线应用需联网打开一次以更新缓存，学习记录不会被清除。
+
+每周邮件工作流独立运行，不重新发布网页。需要彻底撤掉网址时，可在仓库 Settings → Pages 中选择 Unpublish site，不影响邮件任务。
+
+## iCloud邮件配置
+
+在account.apple.com登录Apple账户，进入“登录与安全 → 应用专用密码 → 生成应用专用密码”，名称可填CET6-weekly。需开启Apple双重认证；不要使用Apple账户登录密码。
+
+在原仓库Settings → Secrets and variables → Actions → New repository secret添加：
+
+|Name|Secret内容|
+|---|---|
+|EMAIL_ADDRESS|你的完整iCloud邮箱地址；同一地址用于登录发信与收取周报|
+|ICLOUD_APP_PASSWORD|Apple生成的真实应用专用密码|
+
+保留AI_API_KEY、AI_BASE_URL、AI_MODEL。新任务不使用AI_AUTO_PUBLISH，也不读取腾讯云两个密钥。密码不要发到聊天、普通代码或Variables中。
+
+## 周报内容和时间
+
+默认每周日北京时间20:00由GitHub Actions运行，调度可能延迟，电脑不需开机。按最近7天新闻筛选文化、教育、绿色发展、科技和公共服务；优先3个不同主题，每主题最多生成并自动复核一次，通常至多6次AI请求，不自动修复重试。
+
+周报包括：来源与日期、选题理由、翻译及参考译文、短段写作任务与范例、词汇搭配、可迁移句式和自检。新闻新编题采用180–230字中文段落；库存素材保持已有长度并注明性质。AI内容标注“未经人工核验”，不作考试预测。无法获取合格新闻新题时，用明确标注的已有素材轮换复习，保留失败说明，不冒充本周新题。
+
+每周发送一封正文邮件，附可在手机阅读的HTML文件。没有公网学习页面，不发邮件到其他地址。使用Apple SMTP 587端口并强制TLS，邮箱登录在采集和AI调用前验证；配置缺失或授权失败时不会耗费AI调用。邮箱地址与密码只存GitHub Secrets，日志不输出原始SMTP错误。
+
+weekly-state保存周报和发送状态，GitHub Actions缓存用于跨运行保留。保留状态时同周成功邮件不会重发；投递结果不确定时停止自动重发。缓存被清理或驱逐后可能失去防重复记录，因此不是严格的永久一次投递保证。GitHub长时间无提交可能暂停公共仓库定时任务，需留意Actions状态。
+
+## 首次验证
+
+配置好后，在Actions选择Weekly CET-6 translation and writing email，Run workflow手动运行。检查iCloud收件箱和垃圾邮件。成功日志中的sent只表示SMTP接受邮件，收件箱实际到账仍需确认。
+
+本地weekly-check.cjs使用模拟邮件和生成接口验证，未发送真实邮件，未读取任何真实密钥。真实投递需在邮箱配置完成后手动运行并确认到账。
+
+官方参考：
+
+- https://support.apple.com/en-us/102654
+- https://support.apple.com/en-us/102525
+- https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site

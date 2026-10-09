@@ -1,0 +1,38 @@
+name: Weekly CET-6 translation and writing email
+on:
+  workflow_dispatch:
+  schedule:
+    # Sunday 20:00 Beijing; GitHub may delay scheduled starts.
+    - cron: '0 12 * * 0'
+permissions:
+  contents: read
+concurrency:
+  group: cet6-weekly-mail
+  cancel-in-progress: false
+jobs:
+  weekly-email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - uses: actions/cache@v6
+        with:
+          path: weekly-state
+          key: cet6-weekly-mail-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: cet6-weekly-mail-
+      - run: node weekly-check.cjs
+      - run: npm install --prefix .weekly-runtime --no-save --ignore-scripts --no-audit --no-fund nodemailer
+      - name: Collect and email weekly materials
+        run: node weekly-mail.cjs
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          ICLOUD_APP_PASSWORD: ${{ secrets.ICLOUD_APP_PASSWORD }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
