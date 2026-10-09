@@ -1,0 +1,8 @@
+const assert=require('node:assert/strict'),fs=require('fs'),{classify,select}=require('./curation.cjs'),{parseHTML,SOURCES}=require('./news.cjs'),{slots,pickFallback}=require('./weekly-mail.cjs'),{validate}=require('./generate-daily.cjs');
+const now=Date.parse('2026-10-09T12:00:00Z'),pool=JSON.parse(fs.readFileSync('dist/daily-feed.json')).materials;
+assert.equal(classify('科技赋能社区养老与民生服务').id,'society');assert.equal(classify('乡村基础设施与经济发展').id,'development');assert.equal(classify('人工智能与基础研究').id,'technology');
+const source=SOURCES.find(s=>s.id==='gov-news');const parsed=parseHTML('<a href="/news/202610/08/content_WSabc.html">Artificial intelligence supports scientific research</a><a href="https://malicious.test/news/202610/08/content_WSbad.html">Digital public services</a>',source);assert.equal(parsed.length,1);assert.equal(parsed[0].published,'2026-10-07T16:00:00.000Z');
+assert.equal(select([{...parsed[0],published:'2026-10-10T00:00:00Z'}],now).length,0);assert.equal(select([{...parsed[0],published:'2026-09-01T00:00:00Z'}],now).length,0);
+const used=new Set();for(const t of slots(now)){const m=pickFallback(pool,t,Math.floor(now/604800000),used);assert(m,'Missing topic '+t);used.add(m.id);if(['technology','society','development','green'].includes(t))assert(m.kind.startsWith('2026'));}assert.equal(used.size,5);
+const additions=pool.filter(m=>m.kind?.startsWith('2026'));assert.equal(additions.length,6);for(const m of additions){validate(m);assert(m.note.includes('原创教学拓展'));assert(m.sourcePublished<'2026-10-02');}
+console.log('PASS: six sourced background topics, CET-6 paragraph/example length, five distinct weekly slots, modern fallback priority, dated government URLs, future/stale news exclusion.');

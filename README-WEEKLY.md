@@ -42,3 +42,6 @@ weekly-state保存周报和发送状态，GitHub Actions缓存用于跨运行保
 - https://support.apple.com/en-us/102654
 - https://support.apple.com/en-us/102525
 - https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site
+
+## 均衡选题升级（2026-10-09）
+每期五组：科技、民生、国家发展、绿色发展，另轮换教育或文化。新闻仅取最近七天且不晚于运行时刻的来源。增补六篇2026政策背景专题；新题失败时优先按主题补位，不连续抽取文化条目，不将背景素材冒充本周新闻。前三个有新闻的主题各最多两次AI请求，仍通常至多六次。新闻线索每主题最多两条。增补版以balanced-v2单独记账，本周可补发一次，以后同版本同周不重复发送（依赖缓存保留）。原文日期和原创拓展说明会随邮件显示。

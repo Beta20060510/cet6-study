@@ -1,7 +1,181 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-10-09",
   "materials": [
+    {
+      "id": "tech-research-2026",
+      "title": "基础研究与人工智能",
+      "themeId": "technology",
+      "theme": "科技创新",
+      "publisher": "中国政府网英文版（署名见原文）",
+      "sourceUrl": "https://english.www.gov.cn/news/202607/10/content_WS6a5038b3c6d00ca5f9a0c199.html",
+      "sourcePublished": "2026-07-10",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "基础研究是科技创新的重要基础。中国重视加强基础研究，并探索利用人工智能支持科学研究。",
+      "translation": "Basic research provides an important foundation for technological innovation. China values basic research and is exploring the use of artificial intelligence in scientific research.",
+      "paragraph": "基础研究是科技创新的重要基础。中国重视加强基础研究，并探索利用人工智能支持科学研究。技术进步既需要先进设备，也离不开能够发现问题和提出新方法的人才。对大学生而言，了解新工具只是学习的一部分，更重要的是掌握基础知识，尊重事实，并保持独立思考。面对复杂问题，研究者可以通过合作交流不同观点，在反复检验中改进方案。把科学知识与实际需求联系起来，有助于理解创新的社会价值。讨论科技发展时，既应关注新的应用，也应注意长期研究和负责任的使用。",
+      "paragraphTranslation": "Basic research provides an important foundation for technological innovation. China values basic research and is exploring the use of artificial intelligence in scientific research. Technological progress requires both advanced equipment and people who can identify problems and develop new methods. For university students, learning about new tools is only part of their education. A sound knowledge base, respect for evidence and independent thinking are equally important. Researchers can exchange ideas through cooperation and improve solutions through repeated testing. Connecting scientific knowledge with practical needs helps explain the social value of innovation. Discussions should consider new applications, long-term research and responsible use.",
+      "prompt": "Why should university students value basic research as well as practical skills?",
+      "sample": "Basic research helps students understand why a method works, while practical skills allow them to apply that knowledge. A student designing a simple device, for example, needs both scientific principles and hands-on practice. Universities should connect these experiences so that students can solve problems thoughtfully instead of merely copying existing solutions.",
+      "keywords": [
+        "basic research 基础研究",
+        "scientific discovery 科学发现",
+        "practical needs 实际需求"
+      ],
+      "pattern": "not only … but also … / provide a foundation for … / connect knowledge with practice",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
+    {
+      "id": "tech-digital-services-2026",
+      "title": "数字公共服务与公平可及",
+      "themeId": "technology",
+      "theme": "数字社会",
+      "publisher": "国家数据局",
+      "sourceUrl": "https://www.nda.gov.cn/sjj/ywpd/szsh/0519/20260519194939282443663_pc.html",
+      "sourcePublished": "2026-05-19",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "数字技术正在改变人们使用公共服务的方式。国家数据局发布的数字社会工作要点关注数字公共服务以及线上线下一体化的社区服务。",
+      "translation": "Digital technology is changing how people use public services. The National Data Administration’s work priorities address digital public services and community services that combine online and offline channels.",
+      "paragraph": "数字技术正在改变人们使用公共服务的方式。国家数据局发布的数字社会工作要点关注数字公共服务以及线上线下一体化的社区服务。便利的服务不仅意味着能够在手机上办理事项，还意味着不同年龄和能力的人都能找到适合自己的渠道。对于不熟悉智能设备的人，清楚的说明和必要的线下帮助十分重要。设计数字服务时，可以减少重复填写信息的步骤，同时认真保护个人数据。技术的价值应体现在解决日常问题，而不是增加新的使用障碍。只有兼顾效率与公平，数字生活才会让更多人受益。",
+      "paragraphTranslation": "Digital technology is changing how people use public services. The National Data Administration’s work priorities address digital public services and community services that combine online and offline channels. Convenience means more than completing tasks on a phone. People of different ages and abilities should be able to find suitable ways to obtain services. Clear instructions and offline assistance matter to those unfamiliar with smart devices. Services can reduce repeated information entry while protecting personal data. Technology should solve everyday problems rather than create new barriers. Balancing efficiency with fairness helps more people benefit from digital life.",
+      "prompt": "How can digital services remain accessible to people who lack technical skills?",
+      "sample": "Digital services should offer clear instructions and simple interfaces. However, an online channel alone cannot meet everyone’s needs. Community staff can provide guidance, while essential offline services remain available. Combining these approaches allows people with different skills to obtain help and prevents convenience for some users from becoming a barrier for others.",
+      "keywords": [
+        "digital public services 数字公共服务",
+        "offline assistance 线下帮助",
+        "protect personal data 保护个人数据"
+      ],
+      "pattern": "allow people to … / combine online and offline services / balance efficiency with fairness",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
+    {
+      "id": "society-care-2026",
+      "title": "银发经济与社区养老",
+      "themeId": "society",
+      "theme": "民生与公共服务",
+      "publisher": "中国政府网英文版（署名见原文）",
+      "sourceUrl": "https://english.www.gov.cn/news/202601/13/content_WS69664e52c6d00ca5f9a088c6.html",
+      "sourcePublished": "2026-01-13",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "随着社会人口结构发生变化，养老服务受到更多关注。中国有关部门提出推动科技与养老服务融合，并鼓励发展社区和居家照护。",
+      "translation": "As the population changes, elderly care is receiving more attention. Chinese authorities have proposed integrating technology with care services and encouraging community-based and home care.",
+      "paragraph": "随着社会人口结构发生变化，养老服务受到更多关注。中国有关部门提出推动科技与养老服务融合，并鼓励发展社区和居家照护。讨论这一主题时，既要关注服务供给，也要考虑老年人的不同需求。智能工具可以帮助改善日常生活，但清楚的操作说明、可靠的人员支持和尊重个人意愿同样重要。社区可以把服务信息整理成易于理解的形式，帮助家庭找到合适的资源。老年人不应只是服务的接受者，他们的意见也应参与服务改进。提高生活质量需要技术、专业服务和人与人之间的关怀共同发挥作用。",
+      "paragraphTranslation": "As the population changes, elderly care is receiving more attention. Chinese authorities have proposed integrating technology with care services and encouraging community-based and home care. Discussions should consider both service provision and the different needs of older people. Smart tools may improve daily life, but clear instructions, reliable staff support and respect for personal preferences also matter. Communities can present service information clearly to help families find suitable resources. Older people should contribute to service improvements rather than simply receive assistance. Better quality of life requires technology, professional services and human care to work together.",
+      "prompt": "Explain why human support remains important in technology-assisted elderly care.",
+      "sample": "Smart devices may make elderly care more convenient, but they cannot fully replace human support. Some older people need help understanding instructions, while others value conversation and personal attention. Care providers should listen to their preferences and combine useful technology with patient assistance. This approach respects dignity as well as improving daily convenience.",
+      "keywords": [
+        "community-based care 社区养老",
+        "home care 居家照护",
+        "respect personal preferences 尊重个人意愿"
+      ],
+      "pattern": "as … changes, … / rather than simply … / combine technology with human care",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
+    {
+      "id": "society-jobs-2026",
+      "title": "就业支持与职业技能",
+      "themeId": "society",
+      "theme": "就业与民生",
+      "publisher": "中国政府网英文版（署名见原文）",
+      "sourceUrl": "https://english.www.gov.cn/news/202601/21/content_WS69709698c6d00ca5f9a08b4a.html",
+      "sourcePublished": "2026-01-21",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "就业关系到个人发展和家庭生活。中国的就业工作关注政策协调、公共服务和职业技能培训，也重视高校毕业生等群体的就业支持。",
+      "translation": "Employment affects personal development and family life. China’s employment efforts address policy coordination, public services and vocational training, including support for university graduates.",
+      "paragraph": "就业关系到个人发展和家庭生活。中国的就业工作关注政策协调、公共服务和职业技能培训，也重视高校毕业生等群体的就业支持。面对技术变化，求职者需要不断更新知识，但就业准备不能只依靠个人努力。学校、企业和公共服务机构可以加强联系，为年轻人提供了解岗位要求和积累实践经验的机会。求职者也可以比较不同职业路径，认识自己的优势，并制定可调整的学习计划。评价培训时，应关注所学技能是否能够解决实际问题。把信息服务、实践机会和持续学习结合起来，有助于改善从学习到工作的过渡。",
+      "paragraphTranslation": "Employment affects personal development and family life. China’s employment efforts address policy coordination, public services and vocational training, including support for university graduates. Job seekers need to update their knowledge as technology changes, but preparation cannot depend on individual effort alone. Schools, employers and public service organizations can work together to help young people understand job requirements and gain practical experience. Applicants can compare career paths, recognize their strengths and develop flexible learning plans. Training should be evaluated by whether its skills solve real problems. Combining information, practical opportunities and continued learning can improve the transition from education to work.",
+      "prompt": "How can universities help students make the transition from education to employment?",
+      "sample": "Universities can combine career information with meaningful practical opportunities. Students need to understand workplace expectations, but they also need chances to test their skills. An internship followed by reflection can reveal strengths and areas for improvement. Such support helps students make informed choices while encouraging them to keep learning after graduation.",
+      "keywords": [
+        "vocational training 职业培训",
+        "job requirements 岗位要求",
+        "informed choices 有依据的选择"
+      ],
+      "pattern": "help someone do … / make the transition from … to … / evaluate … by whether …",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
+    {
+      "id": "development-renewal-2026",
+      "title": "城市更新与高质量生活",
+      "themeId": "development",
+      "theme": "国家发展与城市更新",
+      "publisher": "中国政府网英文版（署名见原文）",
+      "sourceUrl": "https://english.www.gov.cn/news/202609/09/content_WS6aa0a942c6d00ca5f9a0d13a.html",
+      "sourcePublished": "2026-09-09",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "城市更新不仅涉及建筑，也关系到居民的日常生活。中国强调探索可持续的城市更新方式，更好地利用公共空间、服务设施和生态资源。",
+      "translation": "Urban renewal concerns buildings and residents’ everyday lives. China emphasizes sustainable approaches that make better use of public spaces, service facilities and ecological resources.",
+      "paragraph": "城市更新不仅涉及建筑，也关系到居民的日常生活。中国强调探索可持续的城市更新方式，更好地利用公共空间、服务设施和生态资源。讨论城市建设时，可以从居民实际需要出发，而不是只关注外观变化。例如，方便步行的道路、容易使用的公共设施和可供休息的空间，都值得纳入规划。不同群体对环境的需求可能不同，因此认真听取居民意见十分必要。更新方案也需要考虑长期维护，避免只重建设而忽视后续管理。把安全、便利和生态要求结合起来，有助于让城市发展与生活质量的改善更加紧密地联系。",
+      "paragraphTranslation": "Urban renewal concerns buildings and residents’ everyday lives. China emphasizes sustainable approaches that make better use of public spaces, service facilities and ecological resources. Discussions can start with residents’ practical needs rather than appearance alone. Walkable roads, accessible facilities and places to rest deserve consideration in planning. Different groups may have different needs, so listening to residents is important. Projects should also consider long-term maintenance instead of focusing only on construction. Combining safety, convenience and environmental needs can connect urban development more closely with better quality of life.",
+      "prompt": "What should planners prioritize when improving an existing urban neighborhood?",
+      "sample": "Planners should begin by understanding how residents use their neighborhood. Attractive buildings matter, but safe paths, accessible facilities and reliable maintenance may have a greater effect on daily life. Listening to different groups helps identify practical priorities. A successful renewal project should make the area easier to live in over the long term.",
+      "keywords": [
+        "urban renewal 城市更新",
+        "public spaces 公共空间",
+        "long-term maintenance 长期维护"
+      ],
+      "pattern": "make better use of … / take … into consideration / improve quality of life",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
+    {
+      "id": "green-planning-2026",
+      "title": "绿色转型与长期发展",
+      "themeId": "green",
+      "theme": "绿色发展与能源转型",
+      "publisher": "中国政府网英文版（署名见原文）",
+      "sourceUrl": "https://english.www.gov.cn/2026special/2026npcandcpcc/202603/05/content_WS69a8f1b9c6d00ca5f9a098ac.html",
+      "sourcePublished": "2026-03-05",
+      "checkedAt": "2026-10-09",
+      "kind": "2026政策背景专题 + 原创学习拓展",
+      "chinese": "绿色发展需要把眼前需求与长期目标结合起来。中国公布的发展目标关注创新和绿色转型，将降低碳排放强度作为重要方向。",
+      "translation": "Green development connects present needs with long-term goals. China’s development targets emphasize innovation and the green transition, including lower carbon intensity.",
+      "paragraph": "绿色发展需要把眼前需求与长期目标结合起来。中国公布的发展目标关注创新和绿色转型，将降低碳排放强度作为重要方向。对学习者而言，这一主题可以从生产方式、资源利用和生活选择等角度展开。企业改进技术时，应考虑效率与环境影响，公众也可以通过减少浪费形成更加节约的习惯。讨论绿色行动时，不能只停留在口号，还应解释具体措施如何发挥作用。长期目标需要持续的努力，也需要不同群体之间的配合。将技术进步、合理规划和日常行动联系起来，有助于理解环境保护与社会发展的相互关系。",
+      "paragraphTranslation": "Green development connects present needs with long-term goals. China’s development targets emphasize innovation and the green transition, including lower carbon intensity. Learners can explore this topic through production, resource use and everyday choices. Businesses should consider efficiency and environmental effects when improving technology. People can also develop resource-saving habits by reducing waste. Discussions should explain how practical measures work rather than rely on slogans. Long-term goals require sustained effort and cooperation among different groups. Connecting technological progress, planning and daily actions helps explain the relationship between environmental protection and social development.",
+      "prompt": "Explain how individual choices and technological progress can support green development.",
+      "sample": "Technological progress can make resource use more efficient, while individual choices affect everyday demand. For example, reducing unnecessary purchases helps limit waste even when products are becoming more efficient. Neither approach is sufficient alone. Combining innovation with thoughtful habits makes environmental action more practical and connects long-term goals with ordinary decisions.",
+      "keywords": [
+        "green transition 绿色转型",
+        "carbon intensity 碳排放强度",
+        "sustained effort 持续努力"
+      ],
+      "pattern": "connect … with … / consider both … and … / neither … alone is sufficient",
+      "checks": [
+        "是否区分政策背景与个人建议？",
+        "是否用具体措施解释作用？",
+        "是否避免没有来源的数字和效果保证？"
+      ],
+      "note": "背景来自所列原文；学习、规划及写作建议为原创教学拓展，不代表报道已证实的具体成效。原文不是本周新闻，练习不代表实际考试题目或命题预测。"
+    },
     {
       "id": "people-ai-learning",
       "day": "2026-10-08",
